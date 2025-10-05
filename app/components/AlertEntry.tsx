@@ -1,21 +1,13 @@
 import { useState } from 'react';
 import {
   Image,
-  LayoutAnimation,
   Linking,
-  Platform,
   Pressable,
   StyleSheet,
   Text,
-  UIManager,
-  View,
+  View
 } from 'react-native';
 import { recallData } from '../type/recall';
-
-// Enable animation on Android
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 
 export function AlertEntry({ data }: { data: recallData }) {
   const [expanded, setExpanded] = useState(false);
@@ -30,7 +22,6 @@ export function AlertEntry({ data }: { data: recallData }) {
   const imageSource = imageMap[data.label];
 
   const toggleExpanded = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setExpanded((prev) => !prev);
   };
 
@@ -42,7 +33,7 @@ export function AlertEntry({ data }: { data: recallData }) {
           {data.title}
         </Text>
         {!expanded &&(
-          <View style={styles.bottomRow}>
+          <View style={styles.bottomRow} collapsable={false}>
             <Image source={imageSource} style={styles.img} />
             <View style={styles.textBlock}>
               <Text style={styles.product} numberOfLines={2} ellipsizeMode="tail">
@@ -58,7 +49,7 @@ export function AlertEntry({ data }: { data: recallData }) {
 
       {/* Dropdown when expanded */}
       {expanded && (
-        <View style={styles.dropdown}>
+        <View style={styles.dropdown} collapsable={false}>
           <Text style={styles.detail}>What to do:</Text>
           <Text style={styles.subtitle}>{data.wtd}</Text>
           <Text style={styles.detail}>Product:</Text>
