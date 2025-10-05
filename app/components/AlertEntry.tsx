@@ -55,10 +55,20 @@ export function AlertEntry({ data }: { data: recallData }) {
       {/* Dropdown when expanded */}
       {expanded && (
         <View style={styles.dropdown}>
-          <Text style={styles.detail}>Type: {data.recall_type}</Text>
-          <Text style={styles.detail}>Audience: {data.audience}</Text>
-          <Text style={styles.detail}>Distribution: {data.distribution}</Text>
+          <Text style={styles.detail}>What to do:</Text>
+          <Text style={styles.subtitle}>{data.wtd}</Text>
+          <Text style={styles.detail}>Product:</Text>
+          <Text style={styles.subtitle}>{data.product}</Text>
+          <Text style={styles.detail}>Issue:</Text>
+          <Text style={styles.subtitle}>{data.issue}</Text>
+          <Text style={styles.detail}>Type:</Text>
+          <Text style={styles.subtitle}>{data.recall_type}</Text>
+          <Text style={styles.detail}>Audience:</Text>
+          <Text style={styles.subtitle}>{data.audience}</Text>
+          <Text style={styles.detail}>Distribution:</Text>
+          <Text style={styles.subtitle}>{data.distribution}</Text>
           <Text style={styles.detail}>Date: {data.date}</Text>
+          <Text style={styles.subtitle}>{data.date}</Text>
           <Text
             style={[styles.detail, styles.link]}
             onPress={() => Linking.openURL(data.link)}
@@ -93,8 +103,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
-    width: 90,
-    height: 90,
+    width: 35,
+    height: 35,
     borderRadius: 15,
     marginRight: 20,
   },
@@ -126,6 +136,10 @@ const styles = StyleSheet.create({
   detail: {
     fontSize: 15,
     marginTop: 6,
+    fontWeight: 'bold'
+  },
+   subtitle: {
+    fontSize: 15
   },
   link: {
     color: '#007AFF',
