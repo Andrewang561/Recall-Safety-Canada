@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: '#fff',
-    paddingVertical: 30,
+    paddingVertical: 20,
     borderTopWidth: 1,
     borderColor: '#ddd',
   },
@@ -58,15 +58,16 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 10,
+    marginBottom: 5,
   },
   activeTab: {
     backgroundColor: '#007AFF',
   },
   text: {
+    fontSize: 20,
     color: '#333',
   },
   activeText: {
     color: '#fff',
-    fontWeight: 'bold',
   },
 });
