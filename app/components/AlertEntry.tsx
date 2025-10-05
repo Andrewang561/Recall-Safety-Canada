@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import {
-    Image,
-    LayoutAnimation,
-    Linking,
-    Platform,
-    Pressable,
-    StyleSheet,
-    Text,
-    UIManager,
-    View,
+  Image,
+  LayoutAnimation,
+  Linking,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  UIManager,
+  View,
 } from 'react-native';
 import { recallData } from '../type/recall';
 
@@ -38,18 +38,22 @@ export function AlertEntry({ data }: { data: recallData }) {
     <Pressable style={styles.container} onPress={toggleExpanded}>
       {/* Header row: image + summary text */}
       <View style={styles.header}>
-        <Image source={imageSource} style={styles.img} />
-        <View style={styles.textBlock}>
-          <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
-            {data.title}
-          </Text>
-          <Text style={styles.product} numberOfLines={1} ellipsizeMode="tail">
-            Product: {data.product}
-          </Text>
-          <Text style={styles.issue} numberOfLines={2} ellipsizeMode="tail">
-            Issue: {data.issue}
-          </Text>
-        </View>
+        <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
+          {data.title}
+        </Text>
+        {!expanded &&(
+          <View style={styles.bottomRow}>
+            <Image source={imageSource} style={styles.img} />
+            <View style={styles.textBlock}>
+              <Text style={styles.product} numberOfLines={2} ellipsizeMode="tail">
+                <Text style={styles.detail}>Product:</Text> {data.product}
+              </Text>
+              <Text style={styles.issue} numberOfLines={2} ellipsizeMode="tail">
+                <Text style={styles.detail}>Issue:</Text> {data.issue}
+              </Text>
+            </View>
+          </View>
+        )}
       </View>
 
       {/* Dropdown when expanded */}
@@ -69,12 +73,14 @@ export function AlertEntry({ data }: { data: recallData }) {
           <Text style={styles.subtitle}>{data.distribution}</Text>
           <Text style={styles.detail}>Date:</Text>
           <Text style={styles.subtitle}>{data.date}</Text>
-          <Text
-            style={[styles.detail, styles.link]}
-            onPress={() => Linking.openURL(data.link)}
-          >
-            Learn More →
-          </Text>
+          <View style={styles.imglink_container}>
+            <Image source={imageSource} style={styles.img} />
+            <Text
+              style={[styles.detail, styles.link]}
+              onPress={() => Linking.openURL(data.link)}>
+              Learn More →
+            </Text>
+          </View>
         </View>
       )}
     </Pressable>
@@ -99,23 +105,32 @@ const styles = StyleSheet.create({
     elevation: 4, // better shadow for Android
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
   },
   img: {
-    width: 40,
-    height: 40,
+    width: 60,
+    height: 60,
     borderRadius: 15,
-    marginRight: 20,
+    alignSelf: 'flex-end',
+    // marginRight: 20,
+  },
+  bottomRow:{
+    flexDirection:'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
   textBlock: {
     flex: 1,
     flexShrink: 1,
+    justifyContent:'flex-end',
+    alignItems: 'flex-start',
+    marginLeft: 15,
   },
   title: {
     fontSize: 19,
     fontWeight: '700',
     marginBottom: 6,
+    textAlign: 'center',
   },
   product: {
     fontSize: 15,
@@ -146,7 +161,13 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     marginTop: 12,
     fontWeight: '500',
+    marginRight: 10,
   },
+  imglink_container:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems: 'flex-end',
+  }
 });
 
 export default AlertEntry;
