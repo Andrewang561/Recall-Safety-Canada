@@ -3,7 +3,8 @@ import { recallData } from '../type/recall';
 
 export function AlertEntry({ data }: {data: recallData}) {
     const handlePress = () => {
-        Linking.openURL(data.href);
+        Linking.openURL(data.link);
+
     };
 
     return <Pressable style = {styles.container} onPress={ handlePress }>

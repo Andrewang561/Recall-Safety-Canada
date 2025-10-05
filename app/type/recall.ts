@@ -6,7 +6,7 @@ export type recallData = {
     "wtd": string,
     "audience": string,
     "distribution": string,
-    "href": string,
+    "link": string,
     "recall_type": string,
     "recall_date": string
 }
