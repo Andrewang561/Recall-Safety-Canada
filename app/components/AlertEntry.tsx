@@ -17,6 +17,7 @@ export function AlertEntry({ data }: { data: recallData }) {
     health: require('../../assets/images/health.webp'),
     product: require('../../assets/images/product-logo.png'),
     food: require('../../assets/images/food-icon.png'),
+    Priority: require('../../assets/images/priority.png')
   };
 
   const imageSource = imageMap[data.label];
