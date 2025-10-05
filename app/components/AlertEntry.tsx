@@ -1,14 +1,16 @@
 import { Image, Linking, Pressable, StyleSheet, Text } from 'react-native';
+import { recallData } from '../type/recall';
 
-export function AlertEntry() {
+export function AlertEntry({ data }: {data: recallData}) {
     const handlePress = () => {
-        Linking.openURL("https://recalls-rappels.canada.ca/en/alert-recall/pistachio-raw-recalled-due-salmonella");
+        Linking.openURL(data.href);
     };
 
     return <Pressable style = {styles.container} onPress={ handlePress }>
         <Image source = {require('../../assets/images/food-icon.png')}  style = {styles.img}></Image>
-        <Text style = {styles.title}>Pistachio Raw recalled due to Salmonella</Text>
-        <Text style = {styles.body}>Product: Pistachio Raw Issue : Food - Microbial contamination -Salmonella</Text>
+        <Text style = {styles.title}>{data.title}</Text>
+        <Text style = {styles.body}>{data.product}</Text>
+        <Text style = {styles.body}>{data.issue}</Text>
     </Pressable>
 }
 
@@ -18,11 +20,6 @@ const styles = StyleSheet.create({
         height: 200,
         backgroundColor: '#ffffff',
         position: 'relative',
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 4,
-        elevation: 3,
     },
     title: {
         fontSize: 28,
