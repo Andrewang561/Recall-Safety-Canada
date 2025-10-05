@@ -1,12 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
-const supabaseURL = process.env.EXPO_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
-if (!supabaseURL || !supabaseAnonKey){
-    throw new Error("Missing url or key");
-}
-const supabase = createClient(supabaseURL, supabaseAnonKey);
+import { supabase } from './supabase';
 
 type Recall = {id: string; title: string; additional_info: string | null;};
 

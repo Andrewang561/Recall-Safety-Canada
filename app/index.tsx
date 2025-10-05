@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import { AlertEntry } from './components/AlertEntry';
+import SupabaseTest from './components/SupabaseTest';
 
 export default function Index() {
   return (
@@ -10,6 +11,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
+      <SupabaseTest/>
       <AlertEntry />
     </View>
   );
