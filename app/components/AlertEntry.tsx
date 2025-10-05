@@ -18,8 +18,8 @@ export function AlertEntry({ data }: {data: recallData}) {
     return <Pressable style = {styles.container} onPress={ handlePress }>
         <Image source = {imageSource}  style = {styles.img}></Image>
         <Text style = {styles.title} numberOfLines={2} ellipsizeMode="tail">{data.title}</Text>
-        <Text style = {styles.product } numberOfLines={1} ellipsizeMode="tail">{data.product}</Text>
-        <Text style = {styles.issue} numberOfLines={2} ellipsizeMode="tail">{data.issue}</Text>
+        <Text style = {styles.product } numberOfLines={1} ellipsizeMode="tail">Product: {data.product}</Text>
+        <Text style = {styles.issue} numberOfLines={2} ellipsizeMode="tail">Issue: {data.issue}</Text>
     </Pressable>
 }
 
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         position: 'absolute',
         top: 90,
-        left: 210,
+        left: 150,
         width: 220,
         height: 172,
     },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         position: 'absolute',
         top: 120,
-        left: 210,
+        left: 150,
         width: 220,
         height: 172,
     },
