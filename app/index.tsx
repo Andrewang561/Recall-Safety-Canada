@@ -53,8 +53,6 @@ export default function HomeScreen() {
           paddingTop: 70,
           paddingBottom: 28,
           backgroundColor: '#0a3d62',
-          borderBottomLeftRadius: 25,
-          borderBottomRightRadius: 25,
           shadowColor: '#000',
           shadowOpacity: 0.2,
           shadowOffset: { width: 0, height: 2 },
