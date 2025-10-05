@@ -14,7 +14,7 @@ export default function Index() {
         const {data, error} = await supabase
         .from('Page_Data')
         .select('*')
-        .limit(10);
+        .limit(20);
 
         if (error) console.error(error);
         else setRecalls(data);
@@ -40,7 +40,7 @@ export default function Index() {
   return (
     <ScrollView contentContainerStyle={{ paddingVertical: 20 }}>
       {recalls.map((recall) => (
-        <AlertEntry data = { recall } />
+        <AlertEntry key = { recall.id} data = { recall } />
       ))}
     </ScrollView>
   );

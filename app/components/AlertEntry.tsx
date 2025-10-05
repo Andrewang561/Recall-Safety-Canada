@@ -2,12 +2,21 @@ import { Image, Linking, Pressable, StyleSheet, Text } from 'react-native';
 import { recallData } from '../type/recall';
 
 export function AlertEntry({ data }: {data: recallData}) {
+    const imageMap: Record<string, any> = {
+        transport: require('../../assets/images/transport-logo.png'),
+        health: require('../../assets/images/health.webp'),
+        product: require('../../assets/images/product-logo.png'),
+        food: require('../../assets/images/food-icon.png'),
+    };
+
     const handlePress = () => {
         Linking.openURL(data.link);
     };
 
+    const imageSource = imageMap[data.label];
+
     return <Pressable style = {styles.container} onPress={ handlePress }>
-        <Image source = {require('../../assets/images/food-icon.png')}  style = {styles.img}></Image>
+        <Image source = {imageSource}  style = {styles.img}></Image>
         <Text style = {styles.title} numberOfLines={2} ellipsizeMode="tail">{data.title}</Text>
         <Text style = {styles.product } numberOfLines={1} ellipsizeMode="tail">{data.product}</Text>
         <Text style = {styles.issue} numberOfLines={2} ellipsizeMode="tail">{data.issue}</Text>

@@ -9,4 +9,5 @@ export type recallData = {
     "link": string,
     "recall_type": string,
     "recall_date": string
+    "label": string,
 }
