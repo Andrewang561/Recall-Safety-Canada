@@ -8,6 +8,6 @@ export type recallData = {
     "distribution": string,
     "link": string,
     "recall_type": string,
-    "recall_date": string
+    "date": string
     "label": string,
 }

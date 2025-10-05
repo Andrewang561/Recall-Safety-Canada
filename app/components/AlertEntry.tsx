@@ -63,7 +63,7 @@ export function AlertEntry({ data }: { data: recallData }) {
             style={[styles.detail, styles.link]}
             onPress={() => Linking.openURL(data.link)}
           >
-            View full recall →
+            Learn More →
           </Text>
         </View>
       )}
@@ -73,56 +73,65 @@ export function AlertEntry({ data }: { data: recallData }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '90%', // instead of 100%, adds space on sides
+    alignSelf: 'center', // centers the card horizontally
     backgroundColor: '#fff',
     borderWidth: 2,
-    borderColor: 'black',
-    borderRadius: 20,
-    marginBottom: 12,
-    padding: 15,
+    borderColor: '#000',
+    borderRadius: 25,
+    marginBottom: 20, // more space between cards
+    paddingVertical: 24, // increased vertical padding
+    paddingHorizontal: 24, // increased side padding
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
+    elevation: 4, // better shadow for Android
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   img: {
-    width: 80,
-    height: 80,
-    borderRadius: 10,
-    marginRight: 15,
+    width: 90,
+    height: 90,
+    borderRadius: 15,
+    marginRight: 20,
   },
   textBlock: {
     flex: 1,
     flexShrink: 1,
   },
   title: {
-    fontSize: 18,
-    fontWeight: '600',
-    marginBottom: 4,
+    fontSize: 19,
+    fontWeight: '700',
+    marginBottom: 6,
   },
   product: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#333',
-    marginBottom: 2,
+    marginBottom: 3,
   },
   issue: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#444',
   },
   dropdown: {
-    marginTop: 15,
+    marginTop: 18,
     borderTopWidth: 1,
     borderColor: '#ccc',
-    paddingTop: 10,
+    paddingTop: 12,
+    paddingLeft: 4,
   },
   detail: {
-    fontSize: 14,
-    marginTop: 4,
+    fontSize: 15,
+    marginTop: 6,
   },
   link: {
     color: '#007AFF',
     textDecorationLine: 'underline',
-    marginTop: 10,
+    marginTop: 12,
+    fontWeight: '500',
   },
 });
 
