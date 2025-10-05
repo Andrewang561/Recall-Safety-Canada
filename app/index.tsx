@@ -34,20 +34,13 @@ export default function Index() {
 
 
   return (
+    <div>
     <ScrollView contentContainerStyle={{ paddingVertical: 20 }}>
       {recalls.map((recall) => (
         <AlertEntry data = { recall } />
       ))}
     </ScrollView>
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <SupabaseTest/>
-      <AlertEntry />
-    </View>
+    <SupabaseTest/>
+    </div>
   );
 }
