@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
-    width: 90,
-    height: 90,
+    width: 40,
+    height: 40,
     borderRadius: 15,
     marginRight: 20,
   },
