@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, View } from "react-native";
 import { AlertEntry } from './components/AlertEntry';
+import SupabaseTest from './components/SupabaseTest';
 import { recallData } from './type/recall';
 
 export default function Index() {
@@ -38,5 +39,15 @@ export default function Index() {
         <AlertEntry data = { recall } />
       ))}
     </ScrollView>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <SupabaseTest/>
+      <AlertEntry />
+    </View>
   );
 }
