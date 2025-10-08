@@ -28,7 +28,8 @@ export default function HomeScreen() {
       try {
         const {data, error} = await supabase
         .from('Page_Data')
-        .select('*');
+        .select('*')
+        .order('date', {ascending: false});
 
         if (error) console.error(error);
         else setRecalls(data);
